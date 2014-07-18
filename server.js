@@ -5,6 +5,7 @@ var config = require('./configs/config.js');
 
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 /* Controller loading */
@@ -14,6 +15,12 @@ var users = require('./controllers/users.js');
 /* Module starting */
 
 var app = express();
+
+//Enabling req.body for x-www-form-url-encoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//Enabling req.body for application/json
+app.use(bodyParser.json());
 
 /* Routes */
 
