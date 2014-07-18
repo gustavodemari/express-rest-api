@@ -17,8 +17,11 @@ router.route('/users')
     res.json(200, {users: []});
   })
 
+//Enable CORS
+app.all('*', config.server.CORS_SETUP);
+
 //All routes prefixed with /api
-app.use('/api', router)
+app.use('/api', router);
 
 /* Server starting */
 
