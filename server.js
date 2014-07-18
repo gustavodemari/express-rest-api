@@ -5,6 +5,7 @@ var config = require('./configs/config.js');
 
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
 
 /* Controller loading */
 
@@ -30,6 +31,17 @@ app.all('*', config.server.CORS_SETUP);
 
 //All routes prefixed with /api
 app.use('/api', router);
+
+/* Database connection */
+
+mongoose.connect('mongodb://'+config.db.mongodb.HOST+'/'+config.db.mongodb.DATABASE_NAME);
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Database open');
+});
+
 
 /* Server starting */
 

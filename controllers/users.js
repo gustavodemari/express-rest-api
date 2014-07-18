@@ -1,4 +1,4 @@
-var User = require('./models/users.js');
+var User = require('../models/users.js');
 var users = [{email: 'steve@apple.com', name: 'Steve Jobs'}];
 
 module.exports = {
