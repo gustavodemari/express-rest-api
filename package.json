@@ -12,5 +12,8 @@
     "api"
   ],
   "author": "Gustavo De Mari Pereira",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.x.x"
+  }
 }
