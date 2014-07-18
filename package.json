@@ -14,6 +14,7 @@
   "author": "Gustavo De Mari Pereira",
   "license": "MIT",
   "dependencies": {
-    "express": "4.x.x"
+    "express": "4.x.x",
+    "mongoose": "~3.8.13"
   }
 }

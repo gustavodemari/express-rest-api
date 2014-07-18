@@ -22,7 +22,7 @@ router.route('/users')
 
 router.route('/users/:userId')
   .get(users.list)
-  .put(users.edit);
+  .put(users.edit)
   .delete(users.delete);
 
 //Enable CORS
