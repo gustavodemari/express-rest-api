@@ -53,5 +53,5 @@ db.once('open', function() {
 /* Server starting */
 
 app.listen(config.server.PORT, function(){
-  console.log('Server running at '+config.server.PORT);  
+  console.log('Back-end server running at '+config.server.PORT);
 });
