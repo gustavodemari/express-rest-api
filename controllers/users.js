@@ -11,7 +11,7 @@ module.exports = {
           res.json(400, { error : err } );
         }
         else {
-          res.json(200, { user: user } );
+          res.json(200, user );
         }
       });
     }
@@ -21,7 +21,7 @@ module.exports = {
           res.json(400, { error : err } );
         }
         else {
-          res.json(200, { users: users } );
+          res.json(200, users );
         }
       });
     }
