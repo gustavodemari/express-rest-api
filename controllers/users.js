@@ -58,6 +58,10 @@ module.exports = {
     var query = { _id: id };
 
     if(id.length > 5){
+      if(user._id){
+        delete user._id;
+      }
+      
       User.update(query, {$set: user}, function(err){
         if (err){
           res.json(400, { error : err } );
@@ -66,6 +70,9 @@ module.exports = {
           res.json(200, { message: 'User updated' } );
         }
       });
+    }
+    else {
+      res.json(400, { error : 'Input error' } );
     }
   },
   delete: function(req, res){
@@ -82,6 +89,9 @@ module.exports = {
           res.json(200, { message: 'User deleted' } );
         }
       });
+    }
+    else {
+      res.json(400, { error : 'Input error' } );
     }
   }
 }
