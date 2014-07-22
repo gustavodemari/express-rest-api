@@ -7,6 +7,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var cors = require('cors');
 
 /* Controller loading */
 
@@ -22,6 +23,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Enabling req.body for application/json
 app.use(bodyParser.json());
 
+//Enable CORS
+app.use(cors())
+
 /* Routes */
 
 router.route('/users')
@@ -32,9 +36,6 @@ router.route('/users/:userId')
   .get(users.list)
   .put(users.edit)
   .delete(users.delete);
-
-//Enable CORS
-app.all('*', config.server.CORS_SETUP);
 
 //All routes prefixed with /api
 app.use('/api', router);
