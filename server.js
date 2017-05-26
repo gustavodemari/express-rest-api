@@ -1,21 +1,21 @@
-/* Environment variables */
-var config = require('./configs/config.js');
+/* Environment constiables */
+const config = require('./configs/config.js');
 
 /* Module loading */
 
-var express = require('express');
-var router = express.Router();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var cors = require('cors');
+const express = require('express');
+const router = express.Router();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
 /* Controller loading */
 
-var users = require('./controllers/users.js');
+const users = require('./controllers/users.js');
 
 /* Module starting */
 
-var app = express();
+const app = express();
 
 //Enabling req.body for x-www-form-url-encoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,7 +44,7 @@ app.use('/api', router);
 
 mongoose.connect('mongodb://'+config.db.mongodb.HOST+'/'+config.db.mongodb.DATABASE_NAME);
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Database open');
