@@ -8,6 +8,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const errorHandler = require('api-error-handler');
 
 /* Controller loading */
 
@@ -36,6 +37,9 @@ router.route('/users/:userId')
   .get(users.list)
   .put(users.edit)
   .delete(users.delete);
+
+//Adding error handler
+app.use(errorHandler());
 
 //All routes prefixed with /api
 app.use('/api', router);
