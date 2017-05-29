@@ -18,6 +18,9 @@ const users = require('./controllers/users.js');
 
 const app = express();
 
+//Adding error handler
+app.use(errorHandler());
+
 //Enabling req.body for x-www-form-url-encoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Enable CORS
-app.use(cors())
+app.use(cors());
 
 /* Routes */
 
@@ -37,9 +40,6 @@ router.route('/users/:userId')
   .get(users.list)
   .put(users.edit)
   .delete(users.delete);
-
-//Adding error handler
-app.use(errorHandler());
 
 //All routes prefixed with /api
 app.use('/api', router);
